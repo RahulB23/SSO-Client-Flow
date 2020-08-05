@@ -14,7 +14,7 @@ test_api_url = ""		#gymkhana api url
 client_id = '<<your client_id goes here>>'
 client_secret = '<<your client_secret goes here>>'
 
-#step A - simulate a request from a browser on the authorize_url - will return an authorization code after the user is
+#simulate a request from a browser on the authorize_url - will return an authorization code after the user is
 # prompted for credentials.
 
 authorization_redirect_url = authorize_url + '?response_type=code&client_id=' + client_id + '&redirect_uri=' + callback_uri + '&scope=openid'
