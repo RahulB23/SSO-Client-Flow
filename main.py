@@ -2,19 +2,21 @@ import requests, json
 import subprocess
 import sys
 
-authorize_url = ""		#gymkhana url 
-token_url = ""			#gymkhana token url
+authorize_url = " https://gymkhana.iitb.ac.in/profiles/oauth/authorize/?client_id=SpB6ZZODGwfgYXnccf06EAICmFjMkwi51mLKqdmz&response_type=code&scope=basic&redirect_uri=https://insti.app&state=some_state"		#gymkhana url 
+token_url = "https://gymkhana.iitb.ac.in/profiles/oauth/token/"			#gymkhana token url
 
 #callback url specified when the application was defined
 callback_uri = ""		#app url
 
-test_api_url = ""		#gymkhana api url
+
+# fields ---- first_name,last_name,type,profile_picture,sex,username,email,program,contacts,insti_address,secondary_emails,mobile,roll_number
+test_api_url = "https://gymkhana.iitb.ac.in/profiles/user/api/user/?fields=email"		#gymkhana api url
 
 
-client_id = '<<your client_id goes here>>'
-client_secret = '<<your client_secret goes here>>'
+client_id = 'SpB6ZZODGwfgYXnccf06EAICmFjMkwi51mLKqdmz'
+client_secret = 'Nzj4Qk3nXolzeOEViTWRv4YobNvgqnB4rUiulLXBKI6WPih99PJE3qDpWhKxbvMHato4yLEfmatGE03QHResYTpUeF1txlW9ncpc4c0POoOiJEPzsyBHyQIWCOmA3fgO'
 
-#simulate a request from a browser on the authorize_url - will return an authorization code after the user is
+#step A - simulate a request from a browser on the authorize_url - will return an authorization code after the user is
 # prompted for credentials.
 
 authorization_redirect_url = authorize_url + '?response_type=code&client_id=' + client_id + '&redirect_uri=' + callback_uri + '&scope=openid'
