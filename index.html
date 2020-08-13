@@ -1,0 +1,69 @@
+<html>
+<head>
+	<script src="https://gymkhana.iitb.ac.in/profiles/static/widget/js/login.min.js" type="application/javascript"></script>
+</head>
+	<body>
+		asdasdsadsa
+    <script type="application/javascript">
+
+        new SSO_JS({
+            config: {
+                client_id: 'SpB6ZZODGwfgYXnccf06EAICmFjMkwi51mLKqdmz',   // Compulsory
+                scope: ['basic', 'profile'],    // Optional. Default is  ['basic']
+                state: '', // Optional. Default None
+                response_type: 'code',  // Optional. Default is 'code'
+                redirect_uri: 'uri-for-redirection',    //Optional
+                sso_root: document.getElementById('sso-root'),
+                /* Optional
+                 document.getElementById don't work if your element is not in light DOM. In that case you need to
+                 provide selector here. In most of the cases this will work.
+                 */
+            },
+            colors: { // All Optional
+                button_div_bg_color: '303F9F', // Background color of button
+                button_anchor_color: 'FFFFFF', // Font color of Button
+                logout_anchor_color: '727272', // Font color of logout mark (The one with 'Login as other user'
+            },
+        }).init();
+
+    </script>
+
+
+		<div id="sso-root"><button>login</button></div>
+
+		<a class="button" href=" https://gymkhana.iitb.ac.in/profiles/oauth/authorize/?client_id=SpB6ZZODGwfgYXnccf06EAICmFjMkwi51mLKqdmz&response_type=code&scope=ldap &redirect_uri=http://localhost:8000&state=some_state" target="_parent"><img alt="" class="logo" id="logo"><div class="text"><span class="inner">Login with SSO</span></div></a>
+	</body>	
+
+
+ https://gymkhana.iitb.ac.in/profiles/oauth/authorize/?client_id=YOUR_CLIENT_ID&response_type=code&scope=basic&redirect_uri=REDIRECT_URI&state=some_state
+
+
+<div class="row">
+    <div class="col-sm-2 col-md-3 col-lg-4"></div>
+    <div class="col-sm-8 col-md-6 col-lg-4">
+        <nb-card>
+            <nb-card-header style="text-align: center;">
+                <h5>Login to AMS</h5>
+            </nb-card-header>
+            <nb-card-body>
+                <div class="mb-2">
+                    Sign in with SSO (recommended)
+                </div>
+                <div id="sso-widget"></div>
+                <hr />
+                <div class="mb-2">
+                    Or, sign in with LDAP
+                </div>
+                <form ngNoForm method="POST" action="api/v1/auth/login-ldap.php">
+                    <input type="text" nbInput fullWidth placeholder="LDAP ID" required name="uid" autocomplete="off">
+                    <br/><br/>
+                    <input type="password" nbInput fullWidth placeholder="Password" required name="password" autocomplete="off">
+                    <br/><br/>
+                    <input type="submit" nbButton fullWidth status="danger" value="Login" />
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-sm-2 col-md-3 col-lg-4"></div>
+</div>
+</html>
